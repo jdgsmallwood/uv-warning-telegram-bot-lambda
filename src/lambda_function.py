@@ -22,15 +22,14 @@ def handler(event, context):
 
         try:
             uv = float(uv)
+            if uv > 3.0:
+                send_message_to_telegram(f"UV is {uv} > 3.0 - be sunsmart!")
+            else:
+                send_message_to_telegram("UV is safe in Melbourne right now.")
         except ValueError:
             logger.error(
                 f"Failed to convert UV to float with traceback {traceback.format_exc()}"
             )
-
-        if uv > 3.0:
-            send_message_to_telegram(f"UV is {uv} > 3.0 - be sunsmart!")
-        else:
-            send_message_to_telegram("UV is safe in Melbourne right now.")
 
 
 def send_message_to_telegram(message: str) -> None:

@@ -1,3 +1,5 @@
 isort
 black
 ruff
+pytest-mock
+pytest
