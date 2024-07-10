@@ -17,7 +17,7 @@ jobs:
         id: login-ecr
         uses: jwalton/gh-ecr-login@v1
         with:
-          aws-region: ${{ secrets.AWS_REGION }}
+          region: ${{ secrets.AWS_REGION }}
           access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
