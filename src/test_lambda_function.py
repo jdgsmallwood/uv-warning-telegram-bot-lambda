@@ -18,7 +18,7 @@ def test_handler_uv_above_threshold(mocker):
 
     handler({}, {})
 
-    mock_send_message.assert_called_once_with("UV is 4.0 > 3.0 - be sunsmart!")
+    mock_send_message.assert_called_once_with("UV is 4.0 > 3.0 - be sunsmart! UV observations courtesy of ARPANSA.")
 
 
 def test_handler_uv_below_threshold(mocker):
@@ -38,7 +38,7 @@ def test_handler_uv_below_threshold(mocker):
 
     handler({}, {})
 
-    mock_send_message.assert_called_once_with("UV is safe in Melbourne right now.")
+    mock_send_message.assert_called_once_with("UV is safe in Melbourne right now. UV observations courtesy of ARPANSA.")
 
 
 def test_handler_invalid_uv_value(mocker):
