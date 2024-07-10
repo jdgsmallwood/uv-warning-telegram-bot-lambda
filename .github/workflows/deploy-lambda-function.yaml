@@ -24,6 +24,8 @@ jobs:
       - name: Run Tests
         id: run-tests
         run: |
+          pip3 install --no-cache-dir -r requirements.txt
+          pip3 install --no-cache-dir -r requirements-dev.txt
           pytest .
 
       - name: Build, tag, and push Docker image
