@@ -55,10 +55,10 @@ def test_handler_uv_above_threshold_and_previous_value_above_3(mocker):
     """
     mock_get.return_value = mock_response
 
-    handler({}, {})
-
     mock_previous_uv = mocker.patch("src.lambda_function.get_previous_uv")
     mock_previous_uv.return_value = 10.0
+
+    handler({}, {})
 
     mock_send_message.assert_not_called()
 
