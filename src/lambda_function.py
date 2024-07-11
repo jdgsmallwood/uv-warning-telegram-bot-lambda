@@ -14,9 +14,6 @@ from pytz import timezone
 load_dotenv()
 
 
-
-
-
 def handler(event, context):
     logger.info("Running...")
     url = "https://uvdata.arpansa.gov.au/xml/uvvalues.xml"

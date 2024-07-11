@@ -9,7 +9,7 @@ def mock_dynamodb(mocker):
 
     mock_dynamodb_resource = mocker.MagicMock()
     mock_boto3.resource.return_value = mock_dynamodb_resource
-    
+
     mock_table = mocker.MagicMock()
     mock_dynamodb_resource.Table.return_value = mock_table
     return mock_boto3
