@@ -14,8 +14,7 @@ from pytz import timezone
 load_dotenv()
 
 
-dynamodb = boto3.resource("dynamodb")
-table = dynamodb.Table("UVIndexTable")
+
 
 
 def handler(event, context):
@@ -56,6 +55,9 @@ def get_previous_uv(uv: float) -> float:
 
     If no previous value was logged for today - defaults to returning zero.
     """
+    dynamodb = boto3.resource("dynamodb")
+    table = dynamodb.Table("UVIndexTable")
+
     date_today = datetime.now(tz=timezone("Australia/Sydney")).strftime("%Y-%m-%d")
     response = table.query(KeyConditionExpression=Key("date").eq(date_today))
 
