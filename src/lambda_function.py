@@ -1,3 +1,4 @@
+import json
 import os
 import traceback
 import xml.etree.ElementTree as ET
@@ -75,7 +76,11 @@ def get_previous_uv(uv: float) -> float:
 
 
 def send_message_to_telegram(message: str) -> None:
-    BOT_TOKEN = os.getenv("BOT_TOKEN")
+    client = boto3.client(
+        service_name="secretsmanager",
+    )
+    secret_value = client.get_secret_value(SecretId="telegram/uv")
+    BOT_TOKEN = json.loads(secret_value["SecretString"])["UV_TELEGRAM_TOKEN"]
     CHAT_ID = os.getenv("CHAT_ID")
     bot = telebot.TeleBot(BOT_TOKEN)
     bot.send_message(CHAT_ID, message)
