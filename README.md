@@ -13,4 +13,5 @@ Additionally - it will save the latest reading to DynamoDB, and will only messag
 
 ## Screenshots
 I set up a channel that the bot can post to to give me updates!
+
 ![Screenshot from 2024-07-18 21-20-32](https://github.com/user-attachments/assets/2bf6d625-8737-42c3-be34-c277d94c56c0)
